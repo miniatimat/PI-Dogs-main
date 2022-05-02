@@ -8,10 +8,10 @@ export default function LandingPage(){
             <div className={styles.welcomeText}>
                 <h1>Welcome</h1>
             </div>
-            <h1 className={styles.casePhone}> I'm Sorry, I am not avalable in mobile yet. Please access from a computer</h1>
+
             <div className={styles.welcome}>
                 <div className={styles.image}/>
-                <Link to="/home">
+                <Link to="/dogs">
                     <button className={styles.enterButton}>...</button>
                 </Link>
             </div>

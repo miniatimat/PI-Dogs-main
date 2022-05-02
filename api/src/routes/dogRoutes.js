@@ -57,7 +57,7 @@ router.post("/dogs", async (req, res)=>{
         )
         const temperamentList = temperaments.split(", ")
         for (let i = 0; i<temperamentList.length; i++){
-            Temperament.findOrCreate({where: { name: temperamentList[i]}})
+            await Temperament.findOrCreate({where: {name: temperamentList[i]}})
         }
         res.send("New breed created")
     }

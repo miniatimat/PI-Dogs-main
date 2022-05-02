@@ -2,7 +2,7 @@ import axios from "axios"
 
 export function getBreeds(){
     return async function (dispatch){
-        let json = axios.get("/dogs")
+        let json = await axios.get("/dogs")
         return dispatch({
             type: "GET_BREEDS",
             payload: json.data
