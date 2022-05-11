@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {getBreeds, cleanBreeds, cleanDetail, deleteBreed, filterBreedsBySource, filterBreedsByTemperament, getDetails, getTemperaments, getBreedByName, orderByName, orderByWeight, postBreed} from "../../redux/actions";
-import styles from "./Home.modules.css"
+import {getBreeds, cleanBreeds, cleanDetail, filterBreedsBySource, filterBreedsByTemperament, getTemperaments, orderByName, orderByWeight} from "../../redux/actions";
+import styles from "./Home.module.css"
 import Card from "../Card/Card";
 import Pagination from "../Pagination/Pagination";
 import SearchBar from "../SearchBar/SearchBar";
@@ -72,7 +72,7 @@ function Home(){
       <div className={styles.home}>
         <nav className={styles.exitSearchAndCreateNav}>
           <div className={styles.exitContainer}>
-            <Link to="/"> <img src="ExitPNG" alt="Exit"/><h1 className={styles.exit} onClick={handleClean}>EXIT</h1></Link>
+            <Link to="/"> <h1 className={styles.exit} onClick={handleClean}>EXIT</h1></Link>
           </div>
 
           <div className={styles.searchBarContainer}>
@@ -84,8 +84,9 @@ function Home(){
           </div>
         </nav>
 
+
         <div className={styles.filtersAndRefresh}>
-          <button className={styles.filterBy}><h2>Filter by <p className={styles.flechita}>&gt;</p> </h2></button>
+          Filter By:
           <select className={styles.filter} onChange={e => handleFilterTypes(e)} value='disabled'>
             <option value=''>Temperament</option>
             <option className={styles.optionsSelect} value='all'>All Temperaments</option>
@@ -101,6 +102,8 @@ function Home(){
             <option className={styles.optionsSelect} value='created'>Created</option>
           </select>
 
+          Sort By:
+
           <select className={styles.filter} onChange={e => handleSortByName(e)} value='disabled'>
             <option value=''>Name</option>
             <option className={styles.optionsSelect} value='asc'>A - Z</option>
@@ -108,9 +111,9 @@ function Home(){
           </select>
 
           <select className={styles.filter} onChange={e => handleSortByWeight(e)} value='disabled'>
-            <option value='' >Weight</option>
-            <option className={styles.optionsSelect} value='more_weight'>+ Weight </option>
-            <option className={styles.optionsSelect} value='less_weight'>- Weight </option>
+            <option value='' > Weight</option>
+            <option className={styles.optionsSelect} value='dsc'>Highest  </option>
+            <option className={styles.optionsSelect} value='asc'> Lowest  </option>
           </select>
 
           <button className={styles.refreshButton} onClick={e => {handleClick(e)}}>
@@ -122,10 +125,12 @@ function Home(){
           load ? (<Loading/>):
               !breeds.length? (<NotFound/>):
                   currentBreeds?.map(b=>{
+                    let image = b.image
+                    if (image.url) image = image.url
                     return (
                         <div key = {b.name}>
                           <Link to={"/dogs/"+ b.name}>
-                            <Card name={b.name} img={b.image.url} temperaments={b.temperaments} weight={b.weight}/>
+                            <Card name={b.name} img={image} temperaments={b.temperaments} minWeight={b.minWeight} maxWeight={b.maxWeight}/>
                           </Link>
                         </div>
                     )

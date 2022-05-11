@@ -1,0 +1,20 @@
+.notFoundContainer {
+    height: 80vh;
+    width: 800px;
+}
+
+.notFound{
+    position: relative;
+    top: 40%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    animation-name: appear;
+    animation-duration: 1s;
+    font-size: 40px;
+    color: white;
+}
+
+@keyframes appear {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}

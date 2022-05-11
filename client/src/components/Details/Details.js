@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import {Link, useParams, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {getDetails, cleanDetail, cleanBreeds, deleteBreed} from "../../redux/actions";
-import styles from "./Details.modules.css"
+import styles from "./Details.module.css"
 import Loading from "../Loading/Loading";
 
 function Details (){
@@ -39,22 +39,22 @@ function Details (){
   return (
       <div className={styles.detailsPage}>
         <nav className={styles.exitSearchAndCreateNav}/>
-        <div className={styles.backContainer}>
+        <div>
           <Link to="/dogs">
-            <h1 className={styles.back} onClick={()=>handleClick()}>Home</h1>
+            <h1 className={styles.back} onClick={()=>handleClick()}> 🏠 Home</h1>
           </Link>
         </div>
         {
           breed.length > 0 ? <div className={styles.detailsContainer}>
-            <button className={styles.pokemonDelete} onClick={()=> handleDelete()}>Delete</button>
+            <button className={styles.breedDelete} onClick={()=> handleDelete()}>Delete</button>
             <div className={styles.details}>
               <h2 className={styles.detailsName}> {breed[0].name}</h2>
-              <h2 className={styles.detailsName}> {breed[0].img}</h2>
-              <h2 className={styles.detailsName}> {breed[0].weight}</h2>
-              <h2 className={styles.detailsName}> {breed[0].height}</h2>
-              <img src={breed[0].image.url}/>
+              <h3 className={styles.detailsName}>Weight: {breed[0].minWeight} - {breed[0].maxWeight} KG </h3>
+              <h3 className={styles.detailsName}>Height: {breed[0].minHeight} - {breed[0].maxHeight} cm</h3>
+              <h3 className={styles.detailsName}>Lifespan {breed[0].shortLifespan} - {breed[0].longLifespan} Years</h3>
+              <img src={breed[0].image.url} alt="Not found"/>
               <div>
-                Temperaments: {breed[0].temperaments.split(", ").map(t => <div key={t}>{t}</div>)}
+                Temperaments: {breed[0].temperaments}
               </div>
             </div>
 

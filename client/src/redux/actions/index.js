@@ -3,9 +3,10 @@ import axios from "axios"
 export function getBreeds(){
     return async function (dispatch){
         let json = await axios.get("/dogs")
+        const withTemperaments = json.data//.filter(b => b.temperaments)
         return dispatch({
             type: "GET_BREEDS",
-            payload: json.data
+            payload: withTemperaments
         })
     }
 }
@@ -41,7 +42,7 @@ export function orderByWeight(payload){
 export function getBreedByName(name){
     return async function(dispatch){
         try{
-            let json = await axios.get("/dogs/?name="+ name)
+            let json = await axios.get("/dogs/"+ name)
             return dispatch({
                 type: "GET_BREED_BY_NAME",
                 payload: json.data

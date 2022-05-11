@@ -5,12 +5,17 @@ const getDbData = async ()=>{
         const dbBreeds = await Dog.findAll({
             include: {
                 model: Temperament,
-                attributes: [],
+                attributes: ["name"],
                 through: { attributes: [] }
             },
-            raw: true
         });
-        return dbBreeds
+        const dbJson = dbBreeds.map(b => b.toJSON())
+        const dbTemperaments = dbJson.map(b=>{
+            const temperament = b.temperaments.map(t => [t.name])
+            return{...b, temperaments: temperament.join(", ")}
+            }
+        )
+        return dbTemperaments
     }
     catch (err){
         console.log(err)

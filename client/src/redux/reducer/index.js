@@ -22,9 +22,12 @@ function rootReducer(state= initialState, action){
                 return {...state,
                     breeds: state.allBreeds}
             }
+
             return {
                 ...state,
-                breeds: state.allBreeds.filter(b=> b.temperaments.find(t=>t[0]=== action.payload))
+                breeds: state.allBreeds.filter(b =>{
+                    let temps = b.temperaments.split(", ")
+                        return temps.includes(action.payload)}  )
             }
         }
         case "FILTER_BY_SOURCE":{
@@ -42,7 +45,7 @@ function rootReducer(state= initialState, action){
                 }
             }
             return {
-                state,
+                ...state,
                 breeds: allBreeds
             }
         }
@@ -64,28 +67,30 @@ function rootReducer(state= initialState, action){
                 })}
             return {
                 ...state,
-                dogs: sorted
+                breeds: sorted
             }
         }
         case "ORDER_BY_WEIGHT":{
             let sorted = state.breeds
             if (action.payload === "asc"){
                 sorted = state.breeds.sort(function (a,b){
-                    if (a.weight > b.weight) return 1
-                    if (a.weight < b.weight) return -1
+                    if (a.minWeight > b.minWeight) return 1
+                    if (a.minWeight < b.minWeight) return -1
                     return 0
                 })
 
             }
             if (action.payload === "dsc"){
                 sorted = state.breeds.sort(function (a,b){
-                    if (a.weight > b.weight) return -1
-                    if (a.weight < b.weight) return 1
+                    if (a.minWeight > b.minWeight) return -1
+                    if (a.minWeight < b.minWeight) return 1
                     return 0
                 })}
+
+
             return {
                 ...state,
-                dogs: sorted
+                breeds: sorted
             }
         }
         case "GET_BREED_BY_NAME":{

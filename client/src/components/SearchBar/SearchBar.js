@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {useDispatch} from "react-redux";
 import {getBreedByName, cleanBreeds} from "../../redux/actions";
-import styles from  "./SearchBar.modules.css"
+import styles from "./SearchBar.module.css"
 
 function SearchBar(){
   const dispatch = useDispatch()
@@ -22,7 +22,7 @@ function SearchBar(){
   return(
       <div className={styles.searchBarContainer}>
         <input className={styles.searchBarInput} value={name} type="text" placeholder="Search Breeds" onChange={(e)=> handleInputChange(e) }/>
-        <button id="btnSearch" className={styles.searchBarContainer} type="submit" onClick={e=> handleSubmit(e)} disabled={name === ""}/>
+        <button id="btnSearch" className={styles.searchBarContainer} type="submit" onClick={e=> handleSubmit(e)} disabled={name === ""}> <div className={styles.searchText}> Search</div> </button>
       </div>
   )
 }

@@ -1,9 +1,9 @@
 .card {
     position: relative;
     overflow: hidden;
-    height: 260px;
-    width: 210px;
-    background-color: rgba(0, 0, 0, 0.799);
+    height: 400px;
+    width: 325px;
+    background-color: rgba(256, 256, 256, 0.799);
     box-shadow: 0 0 .9rem rgb(0, 0, 0);
     border-radius: 40px;
     opacity: 1;
@@ -11,6 +11,7 @@
     margin: 5px;
     animation-name: appear;
     animation-duration: 1s;
+    text-decoration: none;
 }
 
 .cardContainer {
@@ -30,59 +31,41 @@
 
 .card:hover {
     filter: brightness(125%);
-    box-shadow: 0 0 10px 1px aqua;
     transform: scale(1.075);
 }
 
 .cardName {
-    font-size: .55em;
-    color: aqua;
+    font-size: .8em;
+    color: black;
     filter: brightness(150%);
-    text-shadow: 3px 3px 3px #000000;
-    letter-spacing: .2rem;
+    letter-spacing: .1rem;
     margin-bottom: 5px;
+    margin-left: 10%;
+    font-weight: bold;
 }
 
 .cardWeight {
-    font-size: .55em;
-    color: aqua;
+    font-size: .8em;
+    color: black;
     filter: brightness(150%);
-    text-shadow: 3px 3px 3px #000000;
-    letter-spacing: .2rem;
+    letter-spacing: .1rem;
     margin-bottom: 5px;
+    margin-left: 40%;
 }
 
 .cardTemperaments {
-    font-size: .4em;
-    color: #EFFCD5;
-    letter-spacing: .2rem;
-    margin-top: 5px;
+    margin-left: 5%;
+    margin-right: 5%;
+    color: black;
 }
 
 .cardImg {
-    margin-top: 5px;
-    width: 150px;
-    height: 150px;
-    border-radius: 30px;
+    height: 200px;
+    width: 250px;
+    margin-left: 10%;
 }
 
-.card .temperamentsContainer img {
-    margin: 5px;
-    height: 30px;
-    width: 30px;
-}
 
-.cardTypesContainer {
-    color: white;
-    font-size: .5em;
-    margin: 5px;
-    display: flex;
-    justify-content: center;
-}
-
-.typesContainer {
-    margin: 5px;
-}
 
 @keyframes appear {
     from {

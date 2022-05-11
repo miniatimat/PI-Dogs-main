@@ -1,0 +1,85 @@
+.paginationUlContainer {
+    display: flex;
+    list-style-type: none;
+    width: 100%;
+    margin-bottom: 10px;
+    position: absolute;
+    bottom: -195%;
+    left: 30%;
+    filter: brightness(90%);
+}
+
+.paginationContainer li:hover {
+    cursor: pointer;
+}
+
+.desactiveNumber {
+    /*background-image: url();*/
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    justify-content: center;
+    height: 35px;
+    width: 35px;
+    color: white;
+    padding: 0;
+    font-size: 1.2em;
+    text-align: center;
+    transition: .5s;
+    cursor: pointer;
+}
+
+
+.activeNumber {
+    height: 35px;
+    width: 35px;
+    padding: 0;
+    color: red;
+    font-size: 1.5em;
+    font-weight: bolder;
+    transition: .5s;
+    justify-content: space-between;
+    text-align: center;
+    cursor: pointer;
+}
+
+.desactiveNumber h1{
+    position: relative;
+    padding: 2px;
+    border-radius: 100%;
+    height: 5px;
+    width: 5px;
+    left: 13px;
+    top: 4px;
+    transition: .5s;
+}
+
+
+.paginationUlContainer button:disabled {
+    background-image: none;
+    border-radius: 100%;
+    justify-content: space-between;
+    text-align: center;
+    color: transparent;
+    transition: .5s;
+    cursor:default;
+    background-color: transparent;
+}
+
+.prev {
+    color: black ;
+    height: 25px;
+}
+
+.next {
+    color: black;
+    height: 25px;
+}
+
+.next:active {
+    transform: scale(1.5);
+}
+.prev:active {
+    transform: scale(1.5);
+}
+

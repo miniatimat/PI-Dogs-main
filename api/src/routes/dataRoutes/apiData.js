@@ -12,12 +12,19 @@ const getApiData = async ()=>{
 
         const breedData = await Promise.all(
             allBreeds.map( async (b) =>{
+                const heights = b.height.metric.split(" ")
+                const weights = b.weight.metric.split(" ")
+                const lifespans = b.life_span.split(" ")
+
                 return {
                     id: b.id,
                     name: b.name,
-                    height: b.height.metric,
-                    weight: b.weight.metric,
-                    lifespan: b.life_span,
+                    minHeight: parseInt(heights[0]),
+                    maxHeight: parseInt(heights[2]),
+                    minWeight: parseInt(weights[0]),
+                    maxWeight: parseInt(weights[2]),
+                    shortLifespan: parseInt(lifespans[0]),
+                    longLifespan: parseInt(lifespans[2]),
                     image: b.image,
                     temperaments: b.temperament,
                 }

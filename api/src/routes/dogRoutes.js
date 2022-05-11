@@ -51,15 +51,20 @@ router.get("/dogs/:breed",  async (req, res)=>{
 })
 router.post("/dogs", async (req, res)=>{
     //Creates dog via a Json file.
-    const {name, height, weight, lifespan, img, temperaments} = req.body
+    const {name, minHeight, maxHeight, minWeight, maxWeight, shortLifespan, longLifespan, image, temperaments} = req.body
     try {
-        const newBreed = await Dog.create({name, height, weight, lifespan, img}
+        const newBreed = await Dog.create({name, minHeight, maxHeight, minWeight, maxWeight, shortLifespan, longLifespan, image}
         )
         const temperamentList = temperaments.split(", ")
         for (let i = 0; i<temperamentList.length; i++){
             await Temperament.findOrCreate({where: {name: temperamentList[i]}})
         }
+        let temps = await Temperament.findAll({
+            where:{name: temperamentList}
+        })
+        newBreed.addTemperament(temps)
         res.send("New breed created")
+
     }
     catch (err){
         console.log(err)

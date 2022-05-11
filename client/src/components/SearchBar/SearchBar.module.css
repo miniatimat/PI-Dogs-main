@@ -13,17 +13,14 @@
     font-family: 'Press Start 2P', cursive;
     width: 100%;
     float: left;
-    color: #CE2211;
+    color: black;
     border: 0;
-    background: transparent;
+    background: white;
     border-radius: 20px 0 0 20px;
-    font-size: 0.6em;
+    font-size: 0.8em;
     letter-spacing: .1rem;
-    /*background-image: url('./searching.png');*/
     background-size: 20px;
-    background-repeat: no-repeat;
-    margin: 5px auto;
-    margin-left: 20px;
+    padding-left: 20px;
 }
 
 .searchBarContainer input::placeholder{
@@ -32,7 +29,7 @@
 
 .searchBarContainer input:focus {
     outline: 0;
-    background: transparent;
+    background: white;
 }
 
 .searchBarContainer button {
@@ -40,22 +37,27 @@
     font-size: .8em;
     letter-spacing: .1rem;
     position: relative;
-    float: right;
     border: 0;
     padding: 0;
     cursor: pointer;
     height: 30px;
     width: 150px;
     color: #EFFCD5;
-    background: transparent;
+    background: gray;
     border-left: 1px solid rgba(255, 255, 255, 0.202);
     border-radius: 0 20px 20px 0;
-    transition: .5s;
+    transition: .2s;
+    align-content: space-evenly;
+}
+
+.searchText{
+    padding-left: 20px;
+    padding-top: 7px;
 }
 
 .searchBarContainer button:hover {
-    color: black;
-    background: #CE2211;
+    color: white;
+    background: #000000;
     border-color: #CE2211;
 }
 

@@ -1,24 +1,17 @@
 .home {
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.46);
+    background: url(./planks.jpg) repeat scroll;
+    width: 100%;
+    height: 300vh;
 }
 
 
 /* CARDS */
 .cardsContainer {
-    /* grid-template-columns: repeat(6, 1fr); */
-    /* grid-template-rows: repeat(3, 1fr); */
-    display: grid;
-    grid-template-columns: auto auto auto auto auto auto;
-    grid-template-rows: auto auto auto auto;
-    grid-column-gap: 5px;
-    grid-row-gap: 5px;
-    max-width: 1500px;
-    margin: 0 auto;
-    border-radius: 50px;
-    height: 80vh;
-    justify-content: center;
-    align-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    justify-content: space-evenly;
 }
 
 /* CARDS END */
@@ -29,16 +22,16 @@
     position: relative;
     display: flex;
     height: 50px;
-    background-color: rgba(0, 0, 0, 0.55);
+    background-color: #bb2801;
     border-radius: 0px 0px 25px 25px;
     align-items: center;
     justify-content: space-around;
     text-align: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     color: #EFFCD5;
-    font-size: 0.6em;
+    font-size: 0.8em;
     letter-spacing: .2rem;
-    text-decoration: none;
+    font-weight: bold;
 }
 
 .exit {
@@ -47,7 +40,7 @@
 }
 
 .exit:hover {
-    color: #CE2211;
+    color: #1153ce;
 }
 
 .create {
@@ -56,7 +49,7 @@
 }
 
 .create:hover {
-    color: #CE2211;
+    color: #1153ce;
 }
 
 .exitContainer{
@@ -77,23 +70,24 @@
 
 /* FILTERS */
 .filtersAndRefresh {
-    width: 660px;
+    width: 700px;
     height: 30px;
     margin: 10px auto;
+    padding: 15px;
     align-items: center;
     display: flex;
+    color: #EFFCD5;
+    font-family: 'Press Start 2P', cursive;
 }
 
 .refreshButton {
     font-family: 'Press Start 2P', cursive;
-    background-color: rgba(79, 78, 78, 0.184);
+    background-color: rgba(0, 0, 0, 0.184);
     color: #EFFCD5;
     border-radius: 0 15px 15px 0;
     border: 1px solid black;
-    font-size: .4rem;
-    padding: 5px;
-    height: 25px;
-    padding: 5px;
+    font-size: .5rem;
+    height: 30px;
     width: 150px;
     text-align: center;
     transition: .3s;
@@ -114,13 +108,13 @@
 }
 
 .filter {
-    height: 25px;
+    height: 30px;
     font-family: 'Press Start 2P', cursive;
     background-color: rgba(0, 0, 0, 0.277);
     color: #EFFCD5;
     border-radius: 0;
     border: 1px solid black;
-    font-size: .6rem;
+    font-size: .7rem;
     padding: 5px;
     outline: 0px;
     width: 100px;
@@ -164,7 +158,7 @@
 
 /* PAGINATION */
 .pagination {
-    bottom: 10px;
+    display: block;
     width: 100%;
 }
 /* END PAGINATION */
