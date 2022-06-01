@@ -25,7 +25,7 @@ const getApiData = async ()=>{
                     maxWeight: parseInt(weights[2]),
                     shortLifespan: parseInt(lifespans[0]),
                     longLifespan: parseInt(lifespans[2]),
-                    image: b.image,
+                    image: b.image.url,
                     temperaments: b.temperament,
                 }
             })

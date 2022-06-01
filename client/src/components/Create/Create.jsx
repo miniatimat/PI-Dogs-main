@@ -19,7 +19,7 @@ function Create(){
     maxWeight: "",
     shortLifespan: "",
     longLifespan: "",
-    img: "",
+    image: "",
     temperaments: ""
   })
 
@@ -50,7 +50,7 @@ function Create(){
         maxWeight: "",
         shortLifespan: "",
         longLifespan: "",
-        img: "",
+        image: "",
         temperaments: ""
       })
       dispatch(cleanBreeds());
@@ -82,8 +82,14 @@ function Create(){
     if (!input.minHeight) {
       errors.minHeight = 'Minimum Height Required';
     }
+    if (!/^\d+$/.test(input.minHeight) ) {
+      errors.minHeight = 'Only Numbers are accepted';
+    }
     if (!input.maxHeight) {
       errors.maxHeight = 'Maximum Height Required';
+    }
+    if (!/^\d+$/.test(input.maxHeight) ) {
+      errors.maxHeight = 'Only Numbers are accepted';
     }
     if (input.maxHeight < input.minHeight){
       errors.maxHeight = "Maximum Height should be higher than Minimum Height"
@@ -91,26 +97,43 @@ function Create(){
     if (!input.minWeight) {
       errors.minWeight = 'Minimum Weight Required';
     }
+
+    if (!/^\d+$/.test(input.minWeight) ) {
+      errors.minWeight = 'Only Numbers are accepted';
+    }
+
     if(!input.maxWeight){
       errors.maxWeight = "Maximum Weight Required"
+    }
+
+    if (!/^\d+$/.test(input.maxWeight) ) {
+      errors.maxWeight = 'Only Numbers are accepted';
     }
 
     if (input.maxWeight < input.minWeight){
       errors.maxWeight = "Maximum Weight should be higher than Minimum Weight"
     }
 
-    if (!input.image){
-    errors.image = "Image Link Required"
-    }
     if (!input.temperaments){
       errors.temperaments = "Temperaments required"
     }
+
     if (!input.shortLifespan){
       errors.shortLifespan = "Minimum Lifespan Required"
     }
+
+    if (!/^\d+$/.test(input.shortLifespan) ) {
+      errors.shortLifespan = 'Only Numbers are accepted';
+    }
+
     if(!input.longLifespan){
       errors.longLifespan = "Maximum Lifespan Required"
     }
+
+    if (!/^\d+$/.test(input.longLifespan) ) {
+      errors.longLifespan = 'Only Numbers are accepted';
+    }
+
     if (input.longLifespan < input.shortLifespan){
       errors.longLifespan = "Long Lifespan should be higher than Short Lifespan"
     }
@@ -179,9 +202,9 @@ function Create(){
               </div>
               <div className={styles.inputContainer}>
                 <label>Image: </label>
-                <input type='text' value={input.img} name="img" placeholder='Link to Image' onChange={handleChange} className={styles.input} />
-                <img src={input.img} alt=""/>
-                <span>{err.img && (<p className='error'>{err.img}</p>)}</span>
+                <input type='text' value={input.image} name="image" placeholder='Link to Image' onChange={handleChange} className={styles.input} />
+                <img src={input.image} alt=""/>
+                <span>{err.image && (<p className='error'>{err.image}</p>)}</span>
               </div>
 
               <div className={styles.inputContainer}>

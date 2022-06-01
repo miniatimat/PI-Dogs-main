@@ -1,7 +1,7 @@
 .home {
     background: url(./planks.jpg) repeat scroll;
     width: 100%;
-    height: 300vh;
+    height: 305vh;
 }
 
 
@@ -160,6 +160,9 @@
 .pagination {
     display: block;
     width: 100%;
+    position: absolute;
+    top: 300%;
+    left: -5%;
 }
 /* END PAGINATION */
 

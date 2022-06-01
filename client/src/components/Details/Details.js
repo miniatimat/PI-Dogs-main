@@ -21,21 +21,6 @@ function Details (){
     dispatch(cleanBreeds())
   }
 
-  const password = "delete"
-
-  function handleDelete(){
-    if (breed[0].sourceDb){
-      if (Window.promp("Password: ") === password){
-        dispatch(deleteBreed(name))
-        dispatch(cleanDetail())
-        dispatch(cleanBreeds())
-        alert("Breed Deleted")
-        navigate("/dogs")
-      } else alert("Wrong Password")
-    }
-    else alert("You can't delete this breed")
-  }
-
   return (
       <div className={styles.detailsPage}>
         <nav className={styles.exitSearchAndCreateNav}/>
@@ -46,13 +31,12 @@ function Details (){
         </div>
         {
           breed.length > 0 ? <div className={styles.detailsContainer}>
-            <button className={styles.breedDelete} onClick={()=> handleDelete()}>Delete</button>
             <div className={styles.details}>
               <h2 className={styles.detailsName}> {breed[0].name}</h2>
               <h3 className={styles.detailsName}>Weight: {breed[0].minWeight} - {breed[0].maxWeight} KG </h3>
               <h3 className={styles.detailsName}>Height: {breed[0].minHeight} - {breed[0].maxHeight} cm</h3>
               <h3 className={styles.detailsName}>Lifespan {breed[0].shortLifespan} - {breed[0].longLifespan} Years</h3>
-              <img src={breed[0].image.url} alt="Not found"/>
+              <img src={breed[0].image} alt="Not found"/>
               <div>
                 Temperaments: {breed[0].temperaments}
               </div>

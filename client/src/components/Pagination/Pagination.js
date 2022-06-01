@@ -6,7 +6,7 @@ function Pagination ({breedsPerPage, allBreeds, pagination, currentPage, setCurr
   const [input, setInput] = useState(currentPage)
   const max = allBreeds/breedsPerPage
 
-  for (let i= 1; i < Math.ceil(max); i++){
+  for (let i= 1; i <= Math.ceil(max); i++){
     pageNumbers.push(i)
   }
   function nextPage(){

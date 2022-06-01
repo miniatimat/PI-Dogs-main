@@ -13,7 +13,7 @@ router.get("/dogs", async (req,res)=> {
     try{
         if(name){
             const breedName = breeds.filter(b => b.name.toLowerCase() === name.toLowerCase())
-            res.status(200).send(breedName)
+            return res.status(200).send(breedName)
         } else{
             const tempBreeds = breeds.filter(breed=> breed.temperaments)
             tempBreeds.map(b => {
@@ -22,11 +22,11 @@ router.get("/dogs", async (req,res)=> {
                     Temperament.findOrCreate({where: { name: temperamentList[i]}})
                 }
             })
-            res.status(200).send(breeds)
+            return res.status(200).send(breeds)
         }
     }
     catch (err){
-        console.log(err)
+        return res.status(404).send(err)
     }
 })
 
@@ -46,7 +46,7 @@ router.get("/dogs/:breed",  async (req, res)=>{
         }
     }
     catch (err){
-        console.log(err)
+        return res.status(400).send(err)
     }
 })
 router.post("/dogs", async (req, res)=>{
@@ -57,34 +57,15 @@ router.post("/dogs", async (req, res)=>{
         )
         const temperamentList = temperaments.split(", ")
         for (let i = 0; i<temperamentList.length; i++){
-            await Temperament.findOrCreate({where: {name: temperamentList[i]}})
+            let temps = await Temperament.findOrCreate({where: {name: temperamentList[i]}})
+            newBreed.addTemperament(temps)
         }
-        let temps = await Temperament.findAll({
-            where:{name: temperamentList}
-        })
-        newBreed.addTemperament(temps)
-        res.send("New breed created")
+
+        return res.status(200).send("New breed created")
 
     }
     catch (err){
-        console.log(err)
-    }
-})
-
-
-
-router.delete("/delete/:name", async (req, res)=>{
-    const {name} = req.params
-    try{
-        if(name){
-            await Dog.destroy({
-                where: {name: name}
-            })
-        }
-        return res.send("Breed deleted")
-    }
-    catch (err){
-        console.log(err)
+        return res.status(400).send(err)
     }
 })
 

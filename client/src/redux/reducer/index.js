@@ -19,14 +19,13 @@ function rootReducer(state= initialState, action){
         case "FILTER_BY_TEMPERAMENT":{
 
             if (action.payload === "all") {
-                return {...state,
-                    breeds: state.allBreeds}
+                return state
             }
 
             return {
                 ...state,
                 breeds: state.allBreeds.filter(b =>{
-                    let temps = b.temperaments.split(", ")
+                    let temps = b.temperaments? b.temperaments.split(", "): []
                         return temps.includes(action.payload)}  )
             }
         }
@@ -44,10 +43,7 @@ function rootReducer(state= initialState, action){
                     breeds: allBreeds.filter(b=> !b.dbSource)
                 }
             }
-            return {
-                ...state,
-                breeds: allBreeds
-            }
+            return state
         }
         case "ORDER_BY_NAME":{
             let sorted = state.breeds

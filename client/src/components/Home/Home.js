@@ -127,6 +127,7 @@ function Home(){
                   currentBreeds?.map(b=>{
                     let image = b.image
                     if (image.url) image = image.url
+                    console.log(b)
                     return (
                         <div key = {b.name}>
                           <Link to={"/dogs/"+ b.name}>
