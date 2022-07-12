@@ -7,7 +7,6 @@ export default function Loading(){
       <div className={styles.loadingContainer}>
         <div className={styles.loading}>
           <img src={loading} alt="Gif"/>
-          <h1> Loading ...</h1>
         </div>
       </div>
   )

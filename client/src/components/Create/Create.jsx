@@ -145,24 +145,22 @@ function Create(){
         <nav className={styles.exitSearchAndCreateNav}>
           <div >
             <Link to="/dogs">
-              <h1 className={styles.back}>🏠 Home</h1>
+              <p className={styles.back}> {"<Home"}</p>
             </Link>
           </div>
         </nav>
 
         <div className={styles.createContainer}>
           <div className={styles.create}>
-            <h1> Add New Breed</h1>
+            <p className={styles.title}> Create Breed</p>
             <form onSubmit={(e)=> handleSubmit(e)} autoComplete="off">
-
+              <label>Name: </label>
               <div className={styles.inputContainer}>
-                <label>Name: </label>
                 <input type='text' value={input.name} name='name' placeholder='Name' onChange={handleChange} className={styles.input} required />
                 <span>{err.name && (<p className='error'>{err.name}</p>)}</span>
               </div>
-
+              <label> Height: </label>
               <div className={styles.inputPair}>
-                <label> Height: </label>
                 <div className={styles.inputContainer}>
                   <input type='text' value={input.minHeight} name='minHeight' placeholder='Minimum Height' onChange={handleChange} className={styles.input} required />
                   <span>{err.minHeight && (<p className='error'>{err.minHeight}</p>)}</span>
@@ -174,8 +172,8 @@ function Create(){
                 </div>
               </div>
 
+              <label>Weight: </label>
               <div className={styles.inputPair}>
-                <label>Weight: </label>
                 <div className={styles.inputContainer}>
                   <input type='text' value={input.minWeight} name='minWeight' placeholder='Minimum Weight' onChange={handleChange} className={styles.input} required />
                   <span>{err.minWeight && (<p className='error'>{err.minWeight}</p>)}</span>
@@ -187,8 +185,8 @@ function Create(){
                 </div>
               </div>
 
+              <label>Lifespan: </label>
               <div className={styles.inputPair}>
-                <label>Lifespan: </label>
                 <div className={styles.inputContainer}>
                   <input type='text' value={input.shortLifespan} name='shortLifespan' placeholder=' Short Lifespan' onChange={handleChange} className={styles.input} required />
                   <span>{err.shortLifespan && (<p className='error'>{err.shortLifespan}</p>)}</span>
@@ -200,19 +198,20 @@ function Create(){
                 </div>
 
               </div>
+              <label>Temperaments: </label>
               <div className={styles.inputContainer}>
-                <label>Image: </label>
-                <input type='text' value={input.image} name="image" placeholder='Link to Image' onChange={handleChange} className={styles.input} />
-                <img src={input.image} alt=""/>
-                <span>{err.image && (<p className='error'>{err.image}</p>)}</span>
-              </div>
-
-              <div className={styles.inputContainer}>
-                <label>Temperaments: </label>
                 <input type='text' value={input.temperaments} name='temperaments' placeholder='Temperaments' onChange={handleChange} className={styles.input} required />
                 <span>{err.temperaments && (<p className='error'>{err.temperaments}</p>)}</span>
               </div>
 
+              <label>Image: </label>
+              <div className={styles.inputContainer}>
+                <input type='text' value={input.image} name="image" placeholder='Link to Image' onChange={handleChange} className={styles.input} />
+                <div className={styles.imageContainer}>
+                  <img src={input.image} alt=""/>
+                </div>
+                <span>{err.image && (<p className='error'>{err.image}</p>)}</span>
+              </div>
 
               <button className={styles.submitButton} type="submit" disabled={ err.name || err.longLifespan || err.shortLifespan || err.img || err.minWeight || err.maxWeight|| err.minHeight || err.maxHeight }> Add Breed</button>
             </form>

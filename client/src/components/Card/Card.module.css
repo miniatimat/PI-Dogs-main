@@ -12,7 +12,6 @@
     animation-name: appear;
     animation-duration: 1s;
     text-decoration: none;
-
 }
 
 .cardContainer {
@@ -36,7 +35,7 @@
 }
 
 .cardName {
-    font-size: .8em;
+    font-size: 1em;
     color: black;
     filter: brightness(150%);
     letter-spacing: .1rem;
@@ -46,12 +45,12 @@
 }
 
 .cardWeight {
-    font-size: .8em;
+    font-size: 1em;
+    font-weight: bold;
     color: black;
     filter: brightness(150%);
     letter-spacing: .1rem;
-    margin-bottom: 5px;
-    margin-left: 40%;
+    margin-left: 8vw;
 }
 
 .cardTemperaments {
@@ -66,6 +65,16 @@
     margin-left: 10%;
 }
 
+a:link { text-decoration: none; }
+
+
+a:visited { text-decoration: none; }
+
+
+a:hover { text-decoration: none; }
+
+
+a:active { text-decoration: none; }
 
 
 @keyframes appear {

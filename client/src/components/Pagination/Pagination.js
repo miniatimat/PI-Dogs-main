@@ -18,18 +18,17 @@ function Pagination ({breedsPerPage, allBreeds, pagination, currentPage, setCurr
     setInput(input -1) //Check if it is +1
   }
   return(
-      <nav className={styles.paginationContainer}>
+      <div>
         <ul className={styles.paginationUlContainer}>
-          <button onClick={previousPage} className={ styles.prev} disabled={currentPage === 1 || currentPage < 1}> Prev</button>
+          <button onClick={previousPage} className={ styles.prev} disabled={currentPage === 1 || currentPage < 1}> {"<"}</button>
           {pageNumbers && pageNumbers.map(n => (
               <li className={currentPage === n ? styles.activeNumber : styles.desactiveNumber} key={n} onClick={()=> pagination(n)}>
                 {n}
               </li>
           ))}
-          <button onClick={nextPage} className={ styles.next} disabled={currentPage === Math.ceil(max) || currentPage > Math.ceil(max)}>Next</button>
+          <button onClick={nextPage} className={ styles.next} disabled={currentPage === Math.ceil(max) || currentPage > Math.ceil(max)}>{">"}</button>
         </ul>
-
-      </nav>
+      </div>
   )
 }
 

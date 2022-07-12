@@ -1,17 +1,15 @@
 .createPage{
     background: url("./planks.jpg");
-    height: 100%;
+    height: 100vh;
 }
 
 .exitSearchAndCreateNav {
     width: 100%;
-    position: relative;
     display: flex;
     height: 50px;
     background-color: #bb2801;
-    border-radius: 0 0 25px 25px;
     align-items: center;
-    justify-content: space-around;
+    border-radius: 0 0 25px 25px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     color: #EFFCD5;
     font-size: 0.8em;
@@ -21,29 +19,55 @@
 
 .back{
     color: white;
+    font-weight: bold;
+    font-size: 3vh;
+    margin-left: 4vw;
 }
 
 .createContainer{
-    font-size: 1rem;
-    position: relative;
-    width: 80vw;
-    transform: translate(50%, 0);
-    height: 550px;
-    max-width: 600px;
-    margin-top: 45px;
+    width: 50%;
+    height: 80vh;
     background-color: rgba(256, 256, 256, 0.799);
     box-shadow: 0 0 1rem rgb(0, 0, 0);
     border-radius: 40px;
     opacity: 1;
     animation-name: appear;
     animation-duration: 2s;
+    margin-left: 25%;
 }
 
-.createContainer h1{
-    margin-left: 10%;
+.title{
+    margin-bottom: 0;
+    background: #CE2211;
+    border-radius:40px 40px 0 0;
+    justify-items: center;
 }
+
+.createContainer form{
+    margin-left: 5vw;
+}
+
+.createContainer p{
+    font-size: 5vh;
+    font-weight: bolder;
+}
+
+.createContainer label{
+    font-weight: bold;
+    font-size: 3vh;
+}
+
 .inputPair{
     display: flex;
+    flex-flow: row;
+}
+
+.inputContainer{
+    margin-bottom: 2vh;
+}
+
+.imageContainer{
+    width: 10vw;
 }
 
 .submitButton{

@@ -1,22 +1,20 @@
 .landingPage {
     background: url(./dogHouse.png);
-    background-size: 700px;
     background-repeat: no-repeat;
-    background-attachment: scroll;
     background-position: center;
-    height: 100vh;
-    width: 100vw;
+    height: 90vh;
+    width: 100%;
     border-style: none;
     filter: brightness(80%);
 }
 
 
 .welcomeText {
-    font-size: 1.5em;
-    position: relative;
-    top: 29%;
-    left: 92%;
-    transform: translate(-50%, 0);
+    position: absolute;
+    top: 23%;
+    right: 42%;
+    font-size: 7vh;
+    font-weight: bold;
     color: rgba(0, 0, 0, 0.809);
     animation-name: appear;
     animation-duration: 2s;

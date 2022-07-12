@@ -6,7 +6,7 @@ export default function LandingPage(){
     return(
         <div className={styles.landingPage}>
             <div className={styles.welcomeText}>
-                <h1>Welcome</h1>
+                <p>Dog Facts</p>
             </div>
 
             <div className={styles.welcome}>

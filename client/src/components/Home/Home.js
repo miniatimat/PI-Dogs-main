@@ -117,7 +117,7 @@ function Home(){
           </select>
 
           <button className={styles.refreshButton} onClick={e => {handleClick(e)}}>
-            <h2>Refresh All</h2>
+            <p className={styles.refreshText}>Refresh All</p>
           </button>
 
         </div>
@@ -130,7 +130,7 @@ function Home(){
                     console.log(b)
                     return (
                         <div key = {b.name}>
-                          <Link to={"/dogs/"+ b.name}>
+                          <Link to={"/dogs/"+ b.name} style={{textDecoration: 'none'}}>
                             <Card name={b.name} img={image} temperaments={b.temperaments} minWeight={b.minWeight} maxWeight={b.maxWeight}/>
                           </Link>
                         </div>
