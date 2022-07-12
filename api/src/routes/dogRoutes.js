@@ -13,7 +13,7 @@ router.get("/dogs", async (req,res)=> {
     try{
         if(name){
             const breedName = breeds.filter(b => b.name.toLowerCase() === name.toLowerCase())
-            return res.status(200).send(breedName)
+            res.status(200).send(breedName)
         } else{
             const tempBreeds = breeds.filter(breed=> breed.temperaments)
             tempBreeds.map(b => {
@@ -22,11 +22,11 @@ router.get("/dogs", async (req,res)=> {
                     Temperament.findOrCreate({where: { name: temperamentList[i]}})
                 }
             })
-            return res.status(200).send(breeds)
+            res.status(200).send(breeds)
         }
     }
     catch (err){
-        return res.status(404).send(err)
+        console.log(err)
     }
 })
 
@@ -46,7 +46,7 @@ router.get("/dogs/:breed",  async (req, res)=>{
         }
     }
     catch (err){
-        return res.status(400).send(err)
+        console.log(err)
     }
 })
 router.post("/dogs", async (req, res)=>{
@@ -56,16 +56,39 @@ router.post("/dogs", async (req, res)=>{
         const newBreed = await Dog.create({name, minHeight, maxHeight, minWeight, maxWeight, shortLifespan, longLifespan, image}
         )
         const temperamentList = temperaments.split(", ")
+        var capitalizedList = [];
         for (let i = 0; i<temperamentList.length; i++){
-            let temps = await Temperament.findOrCreate({where: {name: temperamentList[i]}})
-            newBreed.addTemperament(temps)
+            let lower = temperamentList[i].toLowerCase()
+            let capitalized = temperamentList[i].charAt(0).toUpperCase() + lower.slice(1)
+            await Temperament.findOrCreate({where: {name: capitalized}})
+            capitalizedList.push(capitalized)
         }
-
-        return res.status(200).send("New breed created")
+        let temps = await Temperament.findAll({
+            where:{name: capitalizedList}
+        })
+        newBreed.addTemperament(temps)
+        res.send("New breed created")
 
     }
     catch (err){
-        return res.status(400).send(err)
+        console.log(err)
+    }
+})
+
+
+
+router.delete("/delete/:name", async (req, res)=>{
+    const {name} = req.params
+    try{
+        if(name){
+            await Dog.destroy({
+                where: {name: name}
+            })
+        }
+        return res.send("Breed deleted")
+    }
+    catch (err){
+        console.log(err)
     }
 })
 

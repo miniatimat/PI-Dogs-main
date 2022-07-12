@@ -86,7 +86,7 @@ function Home(){
 
 
         <div className={styles.filtersAndRefresh}>
-          Filter By:
+          <p>Filter By:</p>
           <select className={styles.filter} onChange={e => handleFilterTypes(e)} value='disabled'>
             <option value=''>Temperament</option>
             <option className={styles.optionsSelect} value='all'>All Temperaments</option>
@@ -102,8 +102,7 @@ function Home(){
             <option className={styles.optionsSelect} value='created'>Created</option>
           </select>
 
-          Sort By:
-
+          <p>Sort By:</p>
           <select className={styles.filter} onChange={e => handleSortByName(e)} value='disabled'>
             <option value=''>Name</option>
             <option className={styles.optionsSelect} value='asc'>A - Z</option>

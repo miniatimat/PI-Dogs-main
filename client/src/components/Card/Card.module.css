@@ -15,7 +15,10 @@
 }
 
 .cardContainer {
-    margin: 20px auto;
+    display: flex;
+    flex-flow: column;
+    margin-left: 35px;
+    margin-right: 35px;
 }
 
 .card::before {
@@ -40,7 +43,6 @@
     filter: brightness(150%);
     letter-spacing: .1rem;
     margin-bottom: 5px;
-    margin-left: 10%;
     font-weight: bold;
 }
 
@@ -50,21 +52,18 @@
     color: black;
     filter: brightness(150%);
     letter-spacing: .1rem;
-    margin-left: 8vw;
+    margin-left: 80px;
 }
 
 .cardTemperaments {
-    margin-left: 5%;
-    margin-right: 5%;
     color: black;
 }
 
 .cardImg {
     height: 200px;
     width: 250px;
-    margin-left: 10%;
+    border-radius: 10px;
 }
-
 a:link { text-decoration: none; }
 
 

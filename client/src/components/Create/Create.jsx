@@ -73,7 +73,7 @@ function Create(){
     if (existent) {
       errors.name = 'That Breed already exists.'
     }
-    if (!/^[a-zA-Z]+$/.test(input.name) ) {
+    if (!/^[a-zA-Z\s]*$/.test(input.name) ) {
       errors.name = 'Only letters are accepted';
     }
     if (!input.name) {
@@ -154,64 +154,78 @@ function Create(){
           <div className={styles.create}>
             <p className={styles.title}> Create Breed</p>
             <form onSubmit={(e)=> handleSubmit(e)} autoComplete="off">
-              <label>Name: </label>
-              <div className={styles.inputContainer}>
-                <input type='text' value={input.name} name='name' placeholder='Name' onChange={handleChange} className={styles.input} required />
-                <span>{err.name && (<p className='error'>{err.name}</p>)}</span>
-              </div>
-              <label> Height: </label>
-              <div className={styles.inputPair}>
+              <div className={styles.formItem}>
+                <label>Name: </label>
                 <div className={styles.inputContainer}>
-                  <input type='text' value={input.minHeight} name='minHeight' placeholder='Minimum Height' onChange={handleChange} className={styles.input} required />
-                  <span>{err.minHeight && (<p className='error'>{err.minHeight}</p>)}</span>
-                </div>
-                -
-                <div className={styles.inputContainer}>
-                  <input type='text' value={input.maxHeight} name='maxHeight' placeholder='Maximum Height' onChange={handleChange} className={styles.input} required />
-                  <span>{err.maxHeight && (<p className='error'>{err.maxHeight}</p>)}</span>
+                  <input type='text' value={input.name} name='name' placeholder='Name' onChange={handleChange} className={styles.input} required />
+                  <span>{err.name && (<p className='error'>{err.name}</p>)}</span>
                 </div>
               </div>
 
-              <label>Weight: </label>
-              <div className={styles.inputPair}>
-                <div className={styles.inputContainer}>
-                  <input type='text' value={input.minWeight} name='minWeight' placeholder='Minimum Weight' onChange={handleChange} className={styles.input} required />
-                  <span>{err.minWeight && (<p className='error'>{err.minWeight}</p>)}</span>
-                </div>
-                -
-                <div className={styles.inputContainer}>
-                  <input type='text' value={input.maxWeight} name='maxWeight' placeholder='Maximum Weight' onChange={handleChange} className={styles.input} required />
-                  <span>{err.maxWeight && (<p className='error'>{err.maxWeight}</p>)}</span>
+              <div className={styles.formItem}>
+                <label> Height: </label>
+                <div className={styles.inputPair}>
+                  <div className={styles.inputContainer}>
+                    <input type='text' value={input.minHeight} name='minHeight' placeholder='Minimum Height' onChange={handleChange} className={styles.input} required />
+                    <span>{err.minHeight && (<p className='error'>{err.minHeight}</p>)}</span>
+                  </div>
+                  -
+                  <div className={styles.inputContainer}>
+                    <input type='text' value={input.maxHeight} name='maxHeight' placeholder='Maximum Height' onChange={handleChange} className={styles.input} required />
+                    <span>{err.maxHeight && (<p className='error'>{err.maxHeight}</p>)}</span>
+                  </div>
                 </div>
               </div>
 
-              <label>Lifespan: </label>
-              <div className={styles.inputPair}>
-                <div className={styles.inputContainer}>
-                  <input type='text' value={input.shortLifespan} name='shortLifespan' placeholder=' Short Lifespan' onChange={handleChange} className={styles.input} required />
-                  <span>{err.shortLifespan && (<p className='error'>{err.shortLifespan}</p>)}</span>
+              <div className={styles.formItem}>
+                <label>Weight: </label>
+                <div className={styles.inputPair}>
+                  <div className={styles.inputContainer}>
+                    <input type='text' value={input.minWeight} name='minWeight' placeholder='Minimum Weight' onChange={handleChange} className={styles.input} required />
+                    <span>{err.minWeight && (<p className='error'>{err.minWeight}</p>)}</span>
+                  </div>
+                  -
+                  <div className={styles.inputContainer}>
+                    <input type='text' value={input.maxWeight} name='maxWeight' placeholder='Maximum Weight' onChange={handleChange} className={styles.input} required />
+                    <span>{err.maxWeight && (<p className='error'>{err.maxWeight}</p>)}</span>
+                  </div>
                 </div>
-                -
-                <div className={styles.inputContainer}>
-                  <input type='text' value={input.longLifespan} name='longLifespan' placeholder=' Long Lifespan' onChange={handleChange} className={styles.input} required />
-                  <span>{err.longLifespan && (<p className='error'>{err.longLifespan}</p>)}</span>
-                </div>
-
-              </div>
-              <label>Temperaments: </label>
-              <div className={styles.inputContainer}>
-                <input type='text' value={input.temperaments} name='temperaments' placeholder='Temperaments' onChange={handleChange} className={styles.input} required />
-                <span>{err.temperaments && (<p className='error'>{err.temperaments}</p>)}</span>
               </div>
 
-              <label>Image: </label>
-              <div className={styles.inputContainer}>
-                <input type='text' value={input.image} name="image" placeholder='Link to Image' onChange={handleChange} className={styles.input} />
-                <div className={styles.imageContainer}>
-                  <img src={input.image} alt=""/>
+              <div className={styles.formItem}>
+                <label>Lifespan: </label>
+                <div className={styles.inputPair}>
+                  <div className={styles.inputContainer}>
+                    <input type='text' value={input.shortLifespan} name='shortLifespan' placeholder=' Short Lifespan' onChange={handleChange} className={styles.input} required />
+                    <span>{err.shortLifespan && (<p className='error'>{err.shortLifespan}</p>)}</span>
+                  </div>
+                  -
+                  <div className={styles.inputContainer}>
+                    <input type='text' value={input.longLifespan} name='longLifespan' placeholder=' Long Lifespan' onChange={handleChange} className={styles.input} required />
+                    <span>{err.longLifespan && (<p className='error'>{err.longLifespan}</p>)}</span>
+                  </div>
                 </div>
-                <span>{err.image && (<p className='error'>{err.image}</p>)}</span>
               </div>
+
+              <div className={styles.formItem}>
+                <label>Temperaments: </label>
+                <div className={styles.inputContainer}>
+                  <input type='text' value={input.temperaments} name='temperaments' placeholder='Temperaments' onChange={handleChange} className={styles.input} required />
+                  <span>{err.temperaments && (<p className='error'>{err.temperaments}</p>)}</span>
+                </div>
+              </div>
+
+              <div className={styles.formItem}>
+                <label>Image: </label>
+                <div className={styles.inputContainer}>
+                  <input type='text' value={input.image} name="image" placeholder='Link to Image' onChange={handleChange} className={styles.input} />
+                  <div className={styles.imageContainer}>
+                    <img src={input.image} alt=""/>
+                  </div>
+                  <span>{err.image && (<p className='error'>{err.image}</p>)}</span>
+                </div>
+              </div>
+
 
               <button className={styles.submitButton} type="submit" disabled={ err.name || err.longLifespan || err.shortLifespan || err.img || err.minWeight || err.maxWeight|| err.minHeight || err.maxHeight }> Add Breed</button>
             </form>

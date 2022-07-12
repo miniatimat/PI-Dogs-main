@@ -23,12 +23,13 @@ function Details (){
 
   return (
       <div className={styles.detailsPage}>
-        <nav className={styles.exitSearchAndCreateNav}/>
-        <div>
-          <Link to="/dogs">
-            <h1 className={styles.back} onClick={()=>handleClick()}> 🏠 Home</h1>
-          </Link>
-        </div>
+        <nav className={styles.exitSearchAndCreateNav}>
+          <div>
+            <Link to="/dogs">
+              <h1 className={styles.back} onClick={()=>handleClick()}> {"<Home"}</h1>
+            </Link>
+          </div>
+        </nav>
         {
           breed.length > 0 ? <div className={styles.detailsContainer}>
             <div className={styles.details}>

@@ -75,6 +75,11 @@
     font-family: 'Press Start 2P', cursive;
 }
 
+.filtersAndRefresh p{
+    margin-left: 2vw;
+    margin-right: 0.5vw;
+}
+
 .refreshButton {
     font-family: 'Press Start 2P', cursive;
     background-color: rgba(0, 0, 0, 0.184);

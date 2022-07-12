@@ -31,6 +31,12 @@ function rootReducer(state= initialState, action){
         }
         case "FILTER_BY_SOURCE":{
             const allBreeds = state.allBreeds
+            if (action.payload === "all"){
+                return {
+                    ...state,
+                    breeds: allBreeds
+                }
+            }
             if (action.payload === "created"){
                 return {
                     ...state,
@@ -97,9 +103,16 @@ function rootReducer(state= initialState, action){
             }
         }
         case "GET_TEMPERAMENTS":{
+
+            let sorted = action.payload.sort(function (a,b){
+                if (a.name > b.name) return 1
+                if (a.name < b.name) return -1
+                return 0
+            })
+
             return {
                 ...state,
-                temperaments: action.payload
+                temperaments: sorted
             }
         }
         case "CREATE_BREED":{
