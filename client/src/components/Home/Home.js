@@ -25,9 +25,11 @@ function Home(){
   }
   const load = useSelector(state => state.isLoading)
 
-  useEffect(()=>{
-    dispatch(getBreeds())
-    dispatch(getTemperaments())
+  useEffect( ()=>{
+     let data = async () => {
+       await dispatch(getBreeds())
+       await dispatch(getTemperaments())
+     }
     dispatch(cleanDetail())
       },[dispatch])
 

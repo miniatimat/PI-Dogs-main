@@ -216,13 +216,13 @@ function Create(){
               </div>
 
               <div className={styles.formItem}>
-                <label>Image: </label>
-                <div className={styles.inputContainer}>
-                  <input type='text' value={input.image} name="image" placeholder='Link to Image' onChange={handleChange} className={styles.input} />
-                  <div className={styles.imageContainer}>
-                    <img src={input.image} alt=""/>
+                <div className={styles.imageContainer}>
+                  <div className={styles.imageText}>
+                    <label>Image: </label>
+                    <input type='text' value={input.image} name="image" placeholder='Link to Image' onChange={handleChange} className={styles.input} />
                   </div>
-                  <span>{err.image && (<p className='error'>{err.image}</p>)}</span>
+
+                  <img src={input.image} alt=""/>
                 </div>
               </div>
 
